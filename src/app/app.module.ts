@@ -4,13 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { Http } from '@angular/http';
+import { Injector } from '@angular/core';
 
-import { ConfigModule, ConfigLoader, ConfigHttpLoader } from '@nglibs/config';
+import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
 
 import { AppComponent } from './app.component';
 
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
+
+import { BaseAPI } from './classes/base-api';
 
 export function configFactory(http: Http): ConfigLoader {
   return new ConfigHttpLoader(http, '/assets/config.json'); // FILE PATH || API ENDPOINT
@@ -40,7 +43,15 @@ export function configFactory(http: Http): ConfigLoader {
       }
     ])
   ],
-  providers: [],
+  providers: [
+    ConfigService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    private injector: Injector
+  ) {
+    BaseAPI.injector = this.injector;
+  }
+}

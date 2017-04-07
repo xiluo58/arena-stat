@@ -1,8 +1,9 @@
 <div class="container">
+  <p-messages [value]="messages"></p-messages>
   <form
     #loginForm="ngForm"
     (ngSubmit)="onSubmit()"
-    class="row justify-content-center">
+    class="row justify-content-center mt-5">
     <div class="col-md-6">
       <md-input-container>
         <input
