@@ -10,6 +10,7 @@ var api = require('./routes/api');
 
 var mongoose = require('mongoose');
 require('./models/Users.js');
+require('./config/passport.js');
 mongoose.connect('mongodb://localhost/arena');
 
 var db = mongoose.connection;
@@ -30,7 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use('/api', api);
 
