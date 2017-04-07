@@ -6,12 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 
-var api = require('./routes/api');
 
 var mongoose = require('mongoose');
-require('./models/Users.js');
-require('./config/passport.js');
-mongoose.connect('mongodb://localhost/arena');
+require('./models/User');
+require('./config/passport');
+mongoose.connect('mongodb://localhost/makeup');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -19,6 +18,7 @@ db.once('open', function() {
   console.log('Connected to mongodb');
 });
 
+var api = require('./routes/api');
 var app = express();
 
 // view engine setup
