@@ -1,0 +1,58 @@
+<div class="container">
+  <form
+    #loginForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="row justify-content-center">
+    <div class="col-md-6">
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Email"
+        name="email"
+        type="email"
+        #emailField="ngModel"
+        required
+        email
+        [(ngModel)]="email">
+        <md-hint class="error-message" [hidden]="emailField.untouched">
+          <span
+            class="error-message"
+            *ngIf="emailField.errors?.required">
+            E-mail is required.
+          </span>
+          <span
+            class="error-message"
+            *ngIf="email && emailField.errors?.email">
+            Please input a valid email address.
+          </span>
+        </md-hint>
+      </md-input-container>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Password"
+        name="password"
+        type="password"
+        #passwordField="ngModel"
+        required
+        password
+        [(ngModel)]="password">
+        <md-hint class="error-message" [hidden]="passwordField.untouched">
+          <span
+            class="error-message"
+            *ngIf="passwordField.errors?.required">
+            Password is required.
+          </span>
+        </md-hint>
+      </md-input-container>
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="btn btn-primary btn-block mt-2">
+        Log in
+      </button>
+    </div>
+  </form>
+</div>

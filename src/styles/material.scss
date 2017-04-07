@@ -1,0 +1,18 @@
+$error-color: #d9534f;
+.mat-input-container{
+  width: 100%;
+  &.ng-touched.ng-invalid{
+    .mat-input-element{
+      color: $error-color;
+    }
+    .error-message{
+      color: $error-color;
+    }
+    .mat-input-placeholder{
+      color: $error-color;
+    }
+    .mat-input-underline{
+      border-color: $error-color;
+    }
+  }
+}
