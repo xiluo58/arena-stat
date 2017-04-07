@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from '@nglibs/config';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,11 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor() { }
+  constructor(
+    private readonly config: ConfigService
+  ) {
+    console.log(this.config.getSettings());
+  }
 
   ngOnInit() {
   }
