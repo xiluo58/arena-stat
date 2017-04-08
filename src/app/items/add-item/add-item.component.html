@@ -1,0 +1,14 @@
+<div class="container">
+  <form #addItemForm="ngForm" class="row mt-5 justify-content-center">
+    <div class="col-md-6">
+      <app-autocomplete
+        placeholder="Brand"
+        [options]="brands"
+        [formCtrl]="brandCtrl"
+        displayField="name">
+      </app-autocomplete>
+    </div>
+  </form>
+  {{brandCtrl.value | json}}
+
+</div>

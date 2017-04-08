@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
+import { ItemsModule } from './items/items.module';
 
 import { BaseAPI } from './classes/base-api';
 import { BroadcastService } from './services/broadcast.service';
@@ -41,6 +42,10 @@ export function configFactory(http: Http): ConfigLoader {
       {
         path: 'user',
         loadChildren: './user/user.module#UserModule'
+      },
+      {
+        path: 'items',
+        loadChildren: './items/items.module#ItemsModule'
       }
     ])
   ],
