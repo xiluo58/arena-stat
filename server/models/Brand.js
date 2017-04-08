@@ -19,6 +19,7 @@ BrandSchema.statics.add = function(name, callback) {
 }
 
 BrandSchema.statics.getIdByName = function(name, callback) {
+  var self = this;
   this.findOne({name: name}, '_id', function(err, result){
     if(err){
       if(callback){
@@ -31,7 +32,7 @@ BrandSchema.statics.getIdByName = function(name, callback) {
         callback(err, result._id);
       }
     }else{
-      this.add(name, (err, brand) => {
+      self.add(name, (err, brand) => {
         if(err){
           if(callback){
             callback(err);
