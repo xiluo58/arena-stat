@@ -11,4 +11,8 @@ export class UserService extends BaseAPI {
   login(parameter) {
     return this.post('login', parameter);
   }
+
+  register(params) {
+    return this.post('register', params);
+  }
 }

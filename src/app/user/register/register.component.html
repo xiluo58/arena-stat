@@ -1,3 +1,83 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <p-messages [value]='messages'></p-messages>
+  <form
+    #registerForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Email"
+        name="email"
+        type="email"
+        #emailField="ngModel"
+        required
+        email
+        [(ngModel)]="email">
+        <md-hint class="error-message" [hidden]="emailField.untouched">
+          <span
+            class="error-message"
+            *ngIf="emailField.errors?.required">
+            E-mail is required.
+          </span>
+          <span
+            class="error-message"
+            *ngIf="email && emailField.errors?.email">
+            Please input a valid email address.
+          </span>
+        </md-hint>
+      </md-input-container>
+
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Password"
+        name="password"
+        type="password"
+        #passwordField="ngModel"
+        required
+        [(ngModel)]="password">
+        <md-hint class="error-message" [hidden]="passwordField.untouched">
+          <span
+            class="error-message"
+            *ngIf="passwordField.errors?.required">
+            Password is required.
+          </span>
+        </md-hint>
+      </md-input-container>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Confirm your password"
+        name="repeatPassword"
+        type="password"
+        #repeatPasswordField="ngModel"
+        required
+        [equalTo]="passwordField"
+        [(ngModel)]="repeatPassword">
+        <md-hint class="error-message" [hidden]="repeatPasswordField.untouched">
+          <span
+            class="error-message"
+            *ngIf="repeatPasswordField.errors?.required">
+            Password is required.
+          </span>
+          <span
+            class="error-message"
+            *ngIf="repeatPasswordField.errors?.equalTo">
+            These passwords don't match. Try again?
+          </span>
+        </md-hint>
+      </md-input-container>
+
+      <button
+        [disabled]='registerForm.invalid'
+        type="submit"
+        class="btn btn-primary btn-block">
+        Register
+      </button>
+    </div>
+  </form>
+</div>
