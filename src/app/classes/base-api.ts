@@ -38,4 +38,15 @@ export class BaseAPI {
     );
 
   }
+
+  get(url) {
+    return this.http.get(this.apiUrlPrefix + url).map(
+      res => {
+        return this.getBodyObject(res);
+      },
+      err => {
+        return err;
+      }
+    );
+  }
 }

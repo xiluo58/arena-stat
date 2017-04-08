@@ -9,5 +9,10 @@ export class ItemsService extends BaseAPI {
   }
 
   addItem(params) {
-    return this.post('addItem', params);  }
+    return this.post('addItem', params);
+  }
+
+  getBrands() {
+    return this.get('brandList');
+  }
 }

@@ -12,16 +12,7 @@ import { ItemsService } from '../items.service';
 export class AddItemComponent implements OnInit {
   addItemForm: FormGroup;
   brandCtrl: FormControl;
-  brands = [
-    {
-      name: 'SK-II',
-      id: '123'
-    },
-    {
-      name: 'Estee Lauder',
-      id: '345'
-    }
-  ];
+  brands: any[];
 
   constructor(
     private fb: FormBuilder,
@@ -35,6 +26,11 @@ export class AddItemComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.itemsService.getBrands().subscribe(
+      res => {
+        this.brands = res;
+      }
+    );
   }
 
   onSubmit() {
