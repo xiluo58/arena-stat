@@ -8,6 +8,7 @@ var auth = jwt({
 });
 
 var authController = require('../controllers/authentication');
+var itemsController = require('../controllers/items');
 
 
 router.use(function(req, res, next){
@@ -25,5 +26,8 @@ router.get('/', function(req, res, next) {
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
+// items
+router.post('/addItem', itemsController.addItem);
+router.get('/brandList', itemsController.getBrands);
 
 module.exports = router;

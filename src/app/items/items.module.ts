@@ -7,9 +7,13 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ItemsRoutingModule } from './items-routing.module';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ItemsService } from './items.service';
 
 
 @NgModule({
+  providers: [
+    ItemsService
+  ],
   imports: [
     CommonModule,
     FormsModule,

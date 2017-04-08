@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 
 @Component({
@@ -11,7 +11,9 @@ export class AutocompleteComponent implements OnInit {
   @Input() placeholder: string;
   @Input() options: any;
   @Input() formCtrl: FormControl;
+  @Input() formGroup: FormGroup;
   @Input() displayField: string;
+  @Input() errorMessages;
 
   filteredOptions: any;
 

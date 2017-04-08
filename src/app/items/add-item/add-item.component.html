@@ -1,14 +1,34 @@
 <div class="container">
-  <form #addItemForm="ngForm" class="row mt-5 justify-content-center">
+  <form
+    [formGroup]="addItemForm"
+    novalidate
+    (ngSubmit)="onSubmit()"
+    class="row mt-5 justify-content-center">
     <div class="col-md-6">
       <app-autocomplete
         placeholder="Brand"
         [options]="brands"
-        [formCtrl]="brandCtrl"
+        [formCtrl]="addItemForm.get('brand')"
+        [formGroup]="addItemForm"
         displayField="name">
       </app-autocomplete>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Name"
+        type="string"
+        formControlName="name"
+        >
+      </md-input-container>
+      <button
+        type="submit"
+        [disabled]="addItemForm.invalid"
+        class="btn btn-primary btn-block"
+        >
+        Add
+      </button>
     </div>
   </form>
-  {{brandCtrl.value | json}}
 
 </div>
