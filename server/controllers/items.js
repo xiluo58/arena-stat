@@ -8,12 +8,12 @@ module.exports.addItem = function(req, res) {
   var body = req.body;
   var brand = body.brand;
   if(typeof brand === 'string'){
-    Brand.add(brand, (err, newBrand)=>{
+    Brand.getIdByName(brand, (err, brandId) => {
       if(err){
         res.status(501);
         return;
       }
-      body.brand = newBrand._id;
+      body.brand = brandId;
       Item.add(body, (err, newItem) => {
         if(err){
           res.status(501);
@@ -22,7 +22,7 @@ module.exports.addItem = function(req, res) {
 
         res.json(newItem);
       });
-    });
+    })
   }
 };
 

@@ -18,4 +18,32 @@ BrandSchema.statics.add = function(name, callback) {
   });
 }
 
+BrandSchema.statics.getIdByName = function(name, callback) {
+  this.findOne({name: name}, '_id', function(err, result){
+    if(err){
+      if(callback){
+        callback(err);
+      }
+      return;
+    }
+    if(result){
+      if(callback){
+        callback(err, result._id);
+      }
+    }else{
+      this.add(name, (err, brand) => {
+        if(err){
+          if(callback){
+            callback(err);
+          }
+          return;
+        }
+        if(callback){
+          callback(err, brand._id);
+        }
+      });
+    }
+  })
+};
+
 mongoose.model('Brand', BrandSchema);
