@@ -30,6 +30,7 @@ var ItemSchema = new Schema({
 
 ItemSchema.statics.add = function(params, callback) {
   var item = new this(params);
+  console.log(params);
   item.save( err => {
     if(callback){
       callback(err, item);

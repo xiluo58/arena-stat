@@ -6,6 +6,7 @@ var Item = mongoose.model('Item');
 
 module.exports.addItem = function(req, res) {
   var body = req.body;
+  console.log(req);
   if(!body.brand._id){
     Brand.getIdByName(brand, (err, brandId) => {
       if(err){

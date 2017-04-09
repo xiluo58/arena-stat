@@ -1,5 +1,5 @@
 import { ConfigService } from '@nglibs/config';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injector } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -21,14 +21,22 @@ export class BaseAPI {
     return res.json() || {};
   }
 
-  post(url, params) {
+  post(url, params, options?) {
     let postBody: string;
-    if (typeof params !== 'string') {
+    if (typeof params === 'string') {
       postBody = params;
     } else {
       postBody = JSON.stringify(params);
     }
-    return this.http.post(this.apiUrlPrefix + url, postBody).map(
+    const headers = new Headers();
+    headers.set('content-type', 'application/json');
+    // if (options && options.token) {
+      // headers.set('Authorization', 'Bearer ' + options.token);
+    // }
+    /* const requestOptions = new RequestOptions({
+      headers: headers
+    }); */
+    return this.http.post(this.apiUrlPrefix + url, postBody, {headers: headers}).map(
       res => {
         return this.getBodyObject(res);
       },

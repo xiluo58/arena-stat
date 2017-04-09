@@ -17,6 +17,7 @@ import { ItemsModule } from './items/items.module';
 
 import { BaseAPI } from './classes/base-api';
 import { BroadcastService } from './services/broadcast.service';
+import { AccountService } from './services/account.service';
 
 export function configFactory(http: Http): ConfigLoader {
   return new ConfigHttpLoader(http, '/assets/config.json'); // FILE PATH || API ENDPOINT
@@ -53,7 +54,8 @@ export function configFactory(http: Http): ConfigLoader {
   ],
   providers: [
     ConfigService,
-    BroadcastService
+    BroadcastService,
+    AccountService
   ],
   bootstrap: [AppComponent]
 })

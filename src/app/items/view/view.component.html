@@ -4,7 +4,11 @@
       <md-card-header>
         <md-card-title>
           {{item.name}}
-          <i class="fa fa-heart-o" aria-hidden="true"></i>
+          <i
+            (click)="favorite(item)"
+            class="fa fa-heart-o"
+            aria-hidden="true">
+          </i>
         </md-card-title>
         <md-card-subtitle>
           {{item.brand.name}}

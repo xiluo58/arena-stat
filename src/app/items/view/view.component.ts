@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../items.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-view',
@@ -9,7 +10,8 @@ import { ItemsService } from '../items.service';
 export class ViewComponent implements OnInit {
   items: any[];
   constructor(
-    private itemsService: ItemsService
+    private itemsService: ItemsService,
+    private accountService: AccountService
   ) { }
 
   ngOnInit() {
@@ -20,4 +22,16 @@ export class ViewComponent implements OnInit {
     );
   }
 
+  favorite(item) {
+    const token = this.accountService.getToken();
+    if (!token) {
+      alert('You must logged in to favorite an item');
+    } else {
+      this.itemsService.favItem(item._id, token).subscribe(
+        res => {
+          console.log(res);
+        }
+      );
+    }
+  }
 }

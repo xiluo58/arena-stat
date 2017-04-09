@@ -27,4 +27,15 @@ export class ItemsService extends BaseAPI {
   getItems() {
     return this.get('getItems');
   }
+
+  favItem(id, token) {
+    return this.post('favItem',
+      {
+        id: id
+      },
+      {
+        token: token
+      });
+  }
+
 }
