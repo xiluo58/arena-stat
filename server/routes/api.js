@@ -33,6 +33,7 @@ router.post('/login', authController.login);
 
 // items
 router.post('/addItem', itemsController.addItem);
+router.get('/getItems', itemsController.getItems);
 router.get('/brandList', itemsController.getBrands);
 
 router.get('/countryList', function(req, res){

@@ -36,4 +36,15 @@ ItemSchema.statics.add = function(params, callback) {
     }
   })
 }
+
+ItemSchema.statics.get = function(params, callback) {
+  this.find(params)
+  .populate('brand category madeIn')
+  .exec((err, result) => {
+    if(callback){
+      callback(err, result);
+    }
+  });
+}
+
 mongoose.model('Item', ItemSchema);
