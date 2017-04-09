@@ -13,6 +13,21 @@
         displayField="name">
       </app-autocomplete>
 
+
+      <app-autocomplete
+        placeholder="Made in"
+        [options]="madeInCountries"
+        [formCtrl]="addItemForm.get('madeIn')"
+        [formGroup]="addItemForm"
+        displayField="name">
+        <template let-option>
+          <div class="d-flex justify-content-start">
+            <span>{{option.name }}</span>
+            <span class="flag-icon ml-auto" [ngClass]="'flag-icon-' + option._id"></span>
+          </div>
+        </template>
+      </app-autocomplete>
+
       <md-input-container>
         <input
         mdInput

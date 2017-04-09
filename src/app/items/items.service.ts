@@ -15,4 +15,8 @@ export class ItemsService extends BaseAPI {
   getBrands() {
     return this.get('brandList');
   }
+
+  getCountries() {
+    return this.get('countryList');
+  }
 }

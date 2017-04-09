@@ -11,8 +11,8 @@ import { ItemsService } from '../items.service';
 })
 export class AddItemComponent implements OnInit {
   addItemForm: FormGroup;
-  brandCtrl: FormControl;
   brands: any[];
+  madeInCountries: any[];
 
   constructor(
     private fb: FormBuilder,
@@ -20,6 +20,7 @@ export class AddItemComponent implements OnInit {
   ) {
     this.addItemForm = this.fb.group({
       brand: ['', Validators.required],
+      madeIn: [''],
       name: ['', Validators.required]
     });
     // this.brandCtrl = new FormControl();
@@ -29,6 +30,11 @@ export class AddItemComponent implements OnInit {
     this.itemsService.getBrands().subscribe(
       res => {
         this.brands = res;
+      }
+    );
+    this.itemsService.getCountries().subscribe(
+      res => {
+        this.madeInCountries = res;
       }
     );
   }

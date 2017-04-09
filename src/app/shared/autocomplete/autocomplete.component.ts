@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 
@@ -14,6 +14,8 @@ export class AutocompleteComponent implements OnInit {
   @Input() formGroup: FormGroup;
   @Input() displayField: string;
   @Input() errorMessages;
+
+  @ContentChild(TemplateRef) optionTemplate: TemplateRef<any>;
 
   filteredOptions: any;
 
