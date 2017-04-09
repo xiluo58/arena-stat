@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ContentChild, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 
@@ -7,7 +7,7 @@ import 'rxjs/add/operator/startWith';
   templateUrl: './autocomplete.component.html',
   styleUrls: ['./autocomplete.component.scss']
 })
-export class AutocompleteComponent implements OnInit {
+export class AutocompleteComponent implements OnInit, OnChanges {
   @Input() placeholder: string;
   @Input() options: any;
   @Input() formCtrl: FormControl;
@@ -23,10 +23,21 @@ export class AutocompleteComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.filteredOptions = this.formCtrl.valueChanges
-      .startWith(null)
-      .map(option => this.filterOptions(option));
   }
+
+  ngOnChanges(changes) {
+    // fix options are get from API and assigned after init
+    // filterOptions is undefined, click input doesn't show complete
+    // start filteredOptions after get input options
+    if (changes.options) {
+      if (changes.options.currentValue) {
+        this.filteredOptions = this.formCtrl.valueChanges
+          .startWith(null)
+          .map(option => this.filterOptions(option));
+      }
+    }
+  };
+
 
   filterOptions(val: string) {
     return val ? this.options.filter(s => new RegExp(`${val}`, 'gi').test(this.getDisplayValue(s)))
