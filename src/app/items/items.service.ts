@@ -23,4 +23,8 @@ export class ItemsService extends BaseAPI {
   getCategories() {
     return this.get('categoryList');
   }
+
+  getItems() {
+    return this.get('getItems');
+  }
 }

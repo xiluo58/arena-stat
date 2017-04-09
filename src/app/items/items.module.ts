@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ItemsRoutingModule } from './items-routing.module';
 import { AddItemComponent } from './add-item/add-item.component';
 import { ItemsService } from './items.service';
+import { ViewComponent } from './view/view.component';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { ItemsService } from './items.service';
     MaterialModule,
     ItemsRoutingModule
   ],
-  declarations: [AddItemComponent],
+  declarations: [AddItemComponent, ViewComponent],
   exports: [
     ItemsRoutingModule
   ]

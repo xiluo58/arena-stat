@@ -50,7 +50,7 @@ export class AddItemComponent implements OnInit {
   onSubmit() {
     const value = this.addItemForm.value;
     this.itemsService.addItem({
-      brand: value.brand._id,
+      brand: value.brand,
       category: value.category ? value.category._id : null,
       madeIn: value.madeIn ? value.madeIn._id : null,
       name: value.name,

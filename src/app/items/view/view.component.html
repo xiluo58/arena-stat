@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <md-card *ngFor="let item of items" class="col-lg-3 m-2">
+      <md-card-header>
+        <md-card-title>
+          {{item.name}}
+          <i class="fa fa-heart-o" aria-hidden="true"></i>
+        </md-card-title>
+        <md-card-subtitle>
+          {{item.brand.name}}
+        </md-card-subtitle>
+      </md-card-header>
+      <img md-card-image [src]="item.imageUrl">
+      <md-card-content>
+        {{item.description}}
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
