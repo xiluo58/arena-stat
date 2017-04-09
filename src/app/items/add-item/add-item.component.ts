@@ -12,6 +12,7 @@ import { ItemsService } from '../items.service';
 export class AddItemComponent implements OnInit {
   addItemForm: FormGroup;
   brands: any[];
+  categories: any[];
   madeInCountries: any[];
 
   constructor(
@@ -20,10 +21,12 @@ export class AddItemComponent implements OnInit {
   ) {
     this.addItemForm = this.fb.group({
       brand: ['', Validators.required],
+      category: [''],
       madeIn: [''],
+      description: [''],
+      imageUrl: [''],
       name: ['', Validators.required]
     });
-    // this.brandCtrl = new FormControl();
   }
 
   ngOnInit() {
@@ -37,10 +40,23 @@ export class AddItemComponent implements OnInit {
         this.madeInCountries = res;
       }
     );
+    this.itemsService.getCategories().subscribe(
+      res => {
+        this.categories = res;
+      }
+    );
   }
 
   onSubmit() {
-    this.itemsService.addItem(this.addItemForm.value).subscribe(
+    const value = this.addItemForm.value;
+    this.itemsService.addItem({
+      brand: value.brand._id,
+      category: value.category ? value.category._id : null,
+      madeIn: value.madeIn ? value.madeIn._id : null,
+      name: value.name,
+      description: value.description || null,
+      imageUrl: value.imageUrl
+    }).subscribe(
       res => {
         console.log(res);
       },

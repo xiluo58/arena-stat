@@ -13,6 +13,13 @@
         displayField="name">
       </app-autocomplete>
 
+      <app-autocomplete
+        placeholder="Category"
+        [options]="categories"
+        [formCtrl]="addItemForm.get('category')"
+        [formGroup]="addItemForm"
+        displayField="name">
+      </app-autocomplete>
 
       <app-autocomplete
         placeholder="Made in"
@@ -36,6 +43,25 @@
         formControlName="name"
         >
       </md-input-container>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Description"
+        type="string"
+        formControlName="description"
+        >
+      </md-input-container>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Image Url"
+        type="string"
+        formControlName="imageUrl"
+        >
+      </md-input-container>
+
       <button
         type="submit"
         [disabled]="addItemForm.invalid"

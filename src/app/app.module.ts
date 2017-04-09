@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { Http } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Injector } from '@angular/core';
 
 import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
@@ -27,6 +28,7 @@ export function configFactory(http: Http): ConfigLoader {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     ConfigModule.forRoot({
