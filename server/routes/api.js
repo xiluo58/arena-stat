@@ -3,8 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var jwt = require('express-jwt');
 var auth = jwt({
-  secret: 'SECRET',
-  userProperty: 'payload'
+  secret: 'SECRET'
 });
 
 var authController = require('../controllers/authentication');

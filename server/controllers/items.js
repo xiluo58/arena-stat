@@ -52,7 +52,7 @@ module.exports.getItems = function(req, res){
 }
 
 module.exports.favItem = function(req, res){
-  let userId = req.payload._id;
+  let userId = req.user._id;
   let itemId = req.body.id;
   Favorite.add({
     user: userId,
