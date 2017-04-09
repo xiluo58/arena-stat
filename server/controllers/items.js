@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 require('../models/Brand');
 require('../models/Item');
+require('../models/Favorite');
 var Brand = mongoose.model('Brand');
 var Item = mongoose.model('Item');
+var Favorite = mongoose.model('Favorite');
 
 module.exports.addItem = function(req, res) {
   var body = req.body;
@@ -47,4 +49,19 @@ module.exports.getItems = function(req, res){
     }
     res.json(result);
   });
+}
+
+module.exports.favItem = function(req, res){
+  let userId = req.payload._id;
+  let itemId = req.body.id;
+  Favorite.add({
+    user: userId,
+    item: itemId
+  }, (err, result) => {
+    if(err){
+      res.status(500);
+      return;
+    }
+    res.json(result);
+  })
 }

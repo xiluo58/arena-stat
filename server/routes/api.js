@@ -18,7 +18,7 @@ var Category = mongoose.model('Category');
 
 router.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 
@@ -33,6 +33,7 @@ router.post('/login', authController.login);
 
 // items
 router.post('/addItem', itemsController.addItem);
+router.post('/favItem', auth, itemsController.favItem);
 router.get('/getItems', itemsController.getItems);
 router.get('/brandList', itemsController.getBrands);
 
