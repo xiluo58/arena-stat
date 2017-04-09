@@ -30,9 +30,9 @@ export class BaseAPI {
     }
     const headers = new Headers();
     headers.set('content-type', 'application/json');
-    // if (options && options.token) {
-      // headers.set('Authorization', 'Bearer ' + options.token);
-    // }
+    if (options && options.token) {
+      headers.set('Authorization', 'Bearer ' + options.token);
+    }
     /* const requestOptions = new RequestOptions({
       headers: headers
     }); */
