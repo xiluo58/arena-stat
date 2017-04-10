@@ -18,6 +18,11 @@ export class PersonalInfoComponent implements OnInit {
 
   ngOnInit() {
     this.tokenInfo = this.accountService.getInfo();
+    this.userService.getInfo().subscribe(
+      res => {
+        this.data = res;
+      }
+    );
   }
 
   onSubmit() {

@@ -17,4 +17,15 @@ export class AccountService {
   getToken(): string {
     return localStorage.getItem(this.tokenKey);
   }
+
+  getInfo() {
+    const token = this.getToken();
+    if (token) {
+      let infoSeg = token.split('.')[1];
+      let infoString = atob(infoSeg);
+      return JSON.parse(infoString);
+    } else {
+      return token;
+    }
+  }
 }

@@ -19,4 +19,8 @@ export class UserService extends BaseAPI {
   updateInfo(params) {
     return this.post('userInfo', params);
   }
+
+  getInfo() {
+    return this.get('userInfo');
+  }
 }
