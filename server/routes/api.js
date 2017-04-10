@@ -37,7 +37,7 @@ router.post('/register', authController.register);
 router.post('/login', authController.login);
 
 router.post('/userInfo', auth, userController.updateUserInfo);
-// router.get('/personalInfo', auth, userController.getPersonalInfo);
+router.get('/userInfo', auth, userController.getUserInfo);
 
 // items
 router.post('/addItem', itemsController.addItem);
