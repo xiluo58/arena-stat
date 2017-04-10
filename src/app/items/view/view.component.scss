@@ -1,0 +1,11 @@
+.mat-card{
+  .mat-card-header{
+    /deep/ .mat-card-header-text{
+      .mat-card-title{
+        .fa-heart{
+          color: #B52D30;
+        }
+      }
+    }
+  }
+}

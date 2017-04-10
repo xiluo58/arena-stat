@@ -28,7 +28,19 @@ export class ViewComponent implements OnInit {
     } else {
       this.itemsService.favItem(item._id).subscribe(
         res => {
-          console.log(res);
+          item.isFavorite = true;
+        }
+      );
+    }
+  }
+
+  unfavorite(item) {
+    if (!this.accountService.isLoggedIn()) {
+      alert('You must log in first.');
+    } else {
+      this.itemsService.unfavItem(item._id).subscribe(
+        res => {
+          item.isFavorite = false;
         }
       );
     }

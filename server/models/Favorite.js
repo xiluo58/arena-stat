@@ -22,4 +22,8 @@ FavoriteSchema.statics.add = function(params, callback){
   })
 };
 
+FavoriteSchema.statics.remove = function(params, callback){
+  this.findOneAndRemove(params, callback);
+}
+
 mongoose.model('Favorite', FavoriteSchema);

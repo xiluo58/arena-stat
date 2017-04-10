@@ -35,4 +35,10 @@ export class ItemsService extends BaseAPI {
       });
   }
 
+  unfavItem(id) {
+    return this.post('unfavItem',
+      {
+        id: id
+      });
+  }
 }

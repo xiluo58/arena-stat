@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AccountService {
-  readonly tokenKey = 'token';
+  private readonly tokenKey = 'token';
   constructor() { }
 
   isLoggedIn(): boolean {

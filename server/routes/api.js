@@ -38,6 +38,7 @@ router.post('/login', authController.login);
 // items
 router.post('/addItem', itemsController.addItem);
 router.post('/favItem', auth, itemsController.favItem);
+router.post('/unfavItem', auth, itemsController.unfavItem);
 router.get('/getItems', optionalAuth, itemsController.getItems);
 router.get('/brandList', itemsController.getBrands);
 

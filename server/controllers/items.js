@@ -78,7 +78,7 @@ module.exports.getItems = function(req, res){
       res.json(results);
     }
   });
-}
+};
 
 module.exports.favItem = function(req, res){
   let userId = req.user._id;
@@ -93,4 +93,19 @@ module.exports.favItem = function(req, res){
     }
     res.json(result);
   })
-}
+};
+
+module.exports.unfavItem = function(req, res){
+  let userId = req.user._id;
+  let itemId = req.body.id;
+  Favorite.remove({
+    user: userId,
+    item: itemId
+  }, (err, result) => {
+    if(err){
+      res.status(500);
+      return;
+    }
+    res.json(result);
+  })
+};
