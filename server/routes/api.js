@@ -13,6 +13,7 @@ var optionalAuth = jwt({
 
 var authController = require('../controllers/authentication');
 var itemsController = require('../controllers/items');
+var userController = require('../controllers/user');
 
 
 require('../models/Country');
@@ -34,6 +35,9 @@ router.get('/', function(req, res, next) {
 // authentication
 router.post('/register', authController.register);
 router.post('/login', authController.login);
+
+router.post('/userInfo', auth, userController.updateUserInfo);
+// router.get('/personalInfo', auth, userController.getPersonalInfo);
 
 // items
 router.post('/addItem', itemsController.addItem);

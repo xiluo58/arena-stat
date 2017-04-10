@@ -6,7 +6,17 @@ var config = require('../config').config;
 var UserSchema = new mongoose.Schema({
   email: {type: String, lowercase: true, unique: true},
   hash: String,
-  salt: String
+  salt: String,
+  firstName: {
+    type: String
+  },
+  lastName: {
+    type: String
+  },
+  gender: {
+    type: String,
+    enum: ['male', 'female']
+  }
 });
 
 UserSchema.methods.setPassword = function(password){
