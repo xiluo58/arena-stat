@@ -21,7 +21,9 @@
           {{item.brand.name}}
         </md-card-subtitle>
       </md-card-header>
-      <img md-card-image [src]="item.imageUrl">
+      <div class="center-image-container">
+        <img md-card-image [src]="item.imageUrl">
+      </div>
       <md-card-content>
         {{item.description}}
       </md-card-content>
