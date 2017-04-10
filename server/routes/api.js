@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var jwt = require('express-jwt');
+var config = require('../config').config;
 var auth = jwt({
-  secret: 'SECRET'
+  secret: config.secret
 });
 
 var authController = require('../controllers/authentication');
