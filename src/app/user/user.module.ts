@@ -10,6 +10,8 @@ import {MessagesModule} from 'primeng/primeng';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './user.service';
+import { ProfileComponent } from './profile/profile.component';
+import { PersonalInfoComponent } from './profile/personal-info/personal-info.component';
 
 
 @NgModule({
@@ -30,10 +32,19 @@ import { UserService } from './user.service';
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       }
     ])
   ],
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    PersonalInfoComponent
+  ],
   entryComponents: [
     LoginComponent,
     RegisterComponent

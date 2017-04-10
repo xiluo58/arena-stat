@@ -1,0 +1,52 @@
+<div class="container">
+  <form
+    #profileForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="row mt-3 justify-content-center">
+    <div class="col-md-6">
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="E-mail"
+        name="email"
+        disabled
+        [ngModel]="tokenInfo?.email"
+        >
+      </md-input-container>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="First name"
+        name="firstName"
+        [(ngModel)]="data.firstName"
+        >
+      </md-input-container>
+
+      <md-input-container>
+        <input
+        mdInput
+        placeholder="Last name"
+        name="lastName"
+        [(ngModel)]="data.lastName"
+        >
+      </md-input-container>
+
+      <md-radio-group name="gender" [(ngModel)]="data.gender">
+        <md-radio-button value='male'>
+          Male
+        </md-radio-button>
+        <md-radio-button value='female'>
+          Female
+        </md-radio-button>
+      </md-radio-group>
+
+      <button
+        type="submit"
+        class="btn btn-primary btn-block">
+        Save
+      </button>
+
+    </div>
+  </form>
+</div>
