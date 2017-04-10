@@ -28,13 +28,10 @@ export class ItemsService extends BaseAPI {
     return this.get('getItems');
   }
 
-  favItem(id, token) {
+  favItem(id) {
     return this.post('favItem',
       {
         id: id
-      },
-      {
-        token: token
       });
   }
 

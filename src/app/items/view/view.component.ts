@@ -23,11 +23,10 @@ export class ViewComponent implements OnInit {
   }
 
   favorite(item) {
-    const token = this.accountService.getToken();
-    if (!token) {
+    if (!this.accountService.isLoggedIn()) {
       alert('You must logged in to favorite an item');
     } else {
-      this.itemsService.favItem(item._id, token).subscribe(
+      this.itemsService.favItem(item._id).subscribe(
         res => {
           console.log(res);
         }
