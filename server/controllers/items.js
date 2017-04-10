@@ -42,12 +42,41 @@ module.exports.getBrands = function(req, res){
 }
 
 module.exports.getItems = function(req, res){
-  Item.get({}, (err, result) => {
+  Item.get({}, (err, results) => {
     if(err){
       res.status(501);
       return;
     }
-    res.json(result);
+    if (req.user){
+      let userId = req.user._id;
+      Favorite.find({user: userId})
+        .distinct('item')
+        .exec((err, favItems) => {
+          results.forEach( item => {
+            for(var i = 0; i < favItems.length; i++){
+              if(favItems[i].equals(item._id)){
+                item.isFavorite = true;
+                break;
+              }
+            }
+            item.isFavorite = item.isFavorite || false;
+          });
+          res.json(results);
+        });
+      /* for(var i = 0; i < results.length; i++){
+        let item = results[i];
+        Favorite.findOne({user: userId, item: item._id}, (err, favItem) => {
+          console.log(favItem);
+          if(!err && favItem) {
+            item.isFavorite = true;
+          } else {
+            item.isFavorite = false;
+          }
+        })
+      }*/
+    }else{
+      res.json(results);
+    }
   });
 }
 

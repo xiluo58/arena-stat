@@ -6,6 +6,10 @@ var config = require('../config').config;
 var auth = jwt({
   secret: config.secret
 });
+var optionalAuth = jwt({
+  secret: config.secret,
+  credentialsRequired: false
+})
 
 var authController = require('../controllers/authentication');
 var itemsController = require('../controllers/items');
@@ -34,7 +38,7 @@ router.post('/login', authController.login);
 // items
 router.post('/addItem', itemsController.addItem);
 router.post('/favItem', auth, itemsController.favItem);
-router.get('/getItems', itemsController.getItems);
+router.get('/getItems', optionalAuth, itemsController.getItems);
 router.get('/brandList', itemsController.getBrands);
 
 router.get('/countryList', function(req, res){
