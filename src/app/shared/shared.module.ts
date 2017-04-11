@@ -3,17 +3,22 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [AutocompleteComponent],
+  declarations: [
+    AutocompleteComponent,
+    ItemCardComponent,
+  ],
   exports: [
-    AutocompleteComponent
+    AutocompleteComponent,
+    ItemCardComponent,
   ]
 })
 export class SharedModule { }
