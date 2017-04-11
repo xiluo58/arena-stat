@@ -137,3 +137,22 @@ module.exports.getFavoriteItems = function(req, res){
         })
     })
 };
+
+module.exports.getItemDetails = function(req, res) {
+  Item.findById(req.query._id)
+  .select('name brand madeIn description cagegory imageUrl _id')
+  .populate('brand cagegory')
+  .exec((err, itemDetails) => {
+    if(err){
+      res.status(500);
+      res.json(err.message);
+      return;
+    }
+    if(!itemDetails){
+      res.status(404);
+      res.json('Item not found');
+      return;
+    }
+    res.json(itemDetails);
+  })
+}

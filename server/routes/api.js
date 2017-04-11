@@ -46,6 +46,7 @@ router.post('/unfavItem', auth, itemsController.unfavItem);
 router.get('/getItems', optionalAuth, itemsController.getItems);
 router.get('/brandList', itemsController.getBrands);
 router.get('/favoriteItems', auth, itemsController.getFavoriteItems);
+router.get('/item', itemsController.getItemDetails);
 
 router.get('/countryList', function(req, res){
   Country.find({})
