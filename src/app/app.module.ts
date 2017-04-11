@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { Http } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Injector } from '@angular/core';
+import { MaterialModule } from '@angular/material';
 
 import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
 
@@ -34,6 +35,7 @@ export function configFactory(http: Http): ConfigLoader {
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
     ConfigModule.forRoot({
       provide: ConfigLoader,
       useFactory: (configFactory),

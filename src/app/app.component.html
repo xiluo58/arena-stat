@@ -1,2 +1,22 @@
-<app-header></app-header>
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav" (click)="sidenav.close()">
+    <md-nav-list>
+      <h3 md-subheader>Account</h3>
+      <a md-list-item routerLink="/user/login">Log in</a>
+      <a md-list-item routerLink="/user/register">Register</a>
+      <a md-list-item routerLink="/user/profile">Profile</a>
+    </md-nav-list>
+
+    <md-divider></md-divider>
+
+    <md-nav-list>
+      <h3 md-subheader>Items</h3>
+      <a md-list-item routerLink="/items/">View all items</a>
+      <a md-list-item routerLink="/items/add">Add a new item</a>
+    </md-nav-list>
+  </md-sidenav>
+
+<app-header [sidenav]="sidenav"></app-header>
 <router-outlet></router-outlet>
+
+</md-sidenav-container>

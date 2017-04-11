@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -7,7 +7,10 @@ import { AccountService } from '../services/account.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() sidenav;
   accountInfo: '';
+
+
 
   constructor(
     private accountService: AccountService

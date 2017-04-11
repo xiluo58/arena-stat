@@ -1,23 +1,26 @@
 <header class="bg-primary p-3">
-  <div class="d-flex justify-content-start">
-      <div>logo</div>
-      <span *ngIf="!accountInfo" class="ml-auto">
-        <a
-          class="btn btn-secondary"
-          routerLink="/user/register">
-          Register
-        </a>
-        <a
-          class="ml-2 btn btn-secondary"
-          routerLink="/user/login">
-          Log in
-        </a>
-      </span>
+  <div class="d-flex justify-content-start align-item-center">
+    <div>
+      <i class="fa fa-ellipsis-v pr-2" aria-hidden="true" (click)="sidenav.open()"></i>
+    </div>
+    <div>logo</div>
+    <span *ngIf="!accountInfo" class="ml-auto">
+      <a
+        class="btn btn-secondary"
+        routerLink="/user/register">
+        Register
+      </a>
+      <a
+        class="ml-2 btn btn-secondary"
+        routerLink="/user/login">
+        Log in
+      </a>
+    </span>
 
-      <span *ngIf="accountInfo" class="ml-auto">
-        <a routerLink="/user/profile">
-          {{accountInfo.email}}
-        </a>
-      </span>
+    <span *ngIf="accountInfo" class="ml-auto">
+      <a routerLink="/user/profile">
+        {{accountInfo.email}}
+      </a>
+    </span>
   </div>
 </header>
