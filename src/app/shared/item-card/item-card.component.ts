@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemCardComponent implements OnInit {
   @Input() item;
+  @Input() favorite;
+  @Input() unfavorite;
 
   constructor() { }
 

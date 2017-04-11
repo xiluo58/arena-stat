@@ -22,7 +22,7 @@ export class ViewComponent implements OnInit {
     );
   }
 
-  favorite(item) {
+  favorite = (item) => {
     if (!this.accountService.isLoggedIn()) {
       alert('You must logged in to favorite an item');
     } else {
@@ -34,7 +34,7 @@ export class ViewComponent implements OnInit {
     }
   }
 
-  unfavorite(item) {
+  unfavorite = (item) => {
     if (!this.accountService.isLoggedIn()) {
       alert('You must log in first.');
     } else {
