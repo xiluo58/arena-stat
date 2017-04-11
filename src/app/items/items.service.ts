@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseAPI } from '../classes/base-api';
+import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class ItemsService extends BaseAPI {
@@ -40,5 +41,11 @@ export class ItemsService extends BaseAPI {
       {
         id: id
       });
+  }
+
+  getItemDetail(id: string) {
+    const searchParams = new URLSearchParams();
+    searchParams.set('_id', id);
+    return this.get('item', searchParams);
   }
 }

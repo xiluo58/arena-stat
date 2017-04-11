@@ -8,13 +8,16 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AddItemComponent } from './add-item/add-item.component';
 import { ItemsService } from './items.service';
+import { ItemDetailsResolverService } from './item-details-resolver.service';
 import { ViewComponent } from './view/view.component';
 import { ItemCardComponent } from './item-card/item-card.component';
+import { ItemDetailsComponent } from './item-details/item-details.component';
 
 
 @NgModule({
   providers: [
-    ItemsService
+    ItemsService,
+    ItemDetailsResolverService
   ],
   imports: [
     CommonModule,
@@ -30,10 +33,17 @@ import { ItemCardComponent } from './item-card/item-card.component';
       {
         path: 'add',
         component: AddItemComponent
+      },
+      {
+        path: ':id',
+        component: ItemDetailsComponent,
+        resolve: {
+          itemDetails: ItemDetailsResolverService
+        }
       }
     ])
   ],
-  declarations: [AddItemComponent, ViewComponent, ItemCardComponent],
+  declarations: [AddItemComponent, ViewComponent, ItemCardComponent, ItemDetailsComponent],
   exports: [
     ItemCardComponent,
     RouterModule

@@ -1,5 +1,5 @@
 import { ConfigService } from '@nglibs/config';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions, URLSearchParams } from '@angular/http';
 import { Injector } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -53,9 +53,15 @@ export class BaseAPI {
 
   }
 
-  get(url) {
+  get(url, searchParams?: URLSearchParams) {
     const headers = this.getDefaultHeaders();
-    return this.http.get(this.apiUrlPrefix + url, {headers: headers}).map(
+    return this.http.get(
+      this.apiUrlPrefix + url,
+      {
+        headers: headers,
+        search: searchParams || ''
+      }
+    ).map(
       res => {
         return this.getBodyObject(res);
       },

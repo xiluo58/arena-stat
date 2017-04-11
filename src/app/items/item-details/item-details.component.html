@@ -1,0 +1,18 @@
+<div class="container mt-5 text-center">
+  <div *ngIf="!itemDetails">
+    Failed to get item details. Please retry.
+  </div>
+  <div *ngIf="itemDetails">
+    <h2>{{itemDetails.name}}</h2>
+    <h3>
+      {{itemDetails.brand.name}}
+      <span
+        *ngIf="itemDetails.madeIn"
+        class="flag-icon"
+        [ngClass]="'flag-icon-' + itemDetails.madeIn">
+      </span>
+    </h3>
+    <img class="img-fluid" [src]="itemDetails.imageUrl">
+    <p>{{itemDetails.description}}<p>
+  </div>
+</div>
