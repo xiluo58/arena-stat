@@ -145,7 +145,7 @@ module.exports.getItemDetails = function(req, res) {
   .exec((err, itemDetails) => {
     if(err){
       res.status(500);
-      res.json(err.message);
+      res.json(err.name);
       return;
     }
     if(!itemDetails){
