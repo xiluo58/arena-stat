@@ -1,0 +1,26 @@
+  <md-card-header>
+    <md-card-title>
+      {{item.name}}
+      <i
+        *ngIf="!item.isFavorite"
+        (click)="favorite(item)"
+        class="fa fa-heart-o"
+        aria-hidden="true">
+      </i>
+      <i
+        *ngIf="item.isFavorite"
+        (click)="unfavorite(item)"
+        class="fa fa-heart favorite"
+        aria-hidden="true">
+      </i>
+    </md-card-title>
+    <md-card-subtitle>
+      {{item.brand.name}}
+    </md-card-subtitle>
+  </md-card-header>
+  <div class="center-image-container">
+    <img md-card-image [src]="item.imageUrl">
+  </div>
+  <md-card-content>
+    {{item.description}}
+  </md-card-content>
