@@ -6,7 +6,7 @@
   <md-autocomplete #auto="mdAutocomplete" [displayWith]="getDisplayValue">
     <md-option *ngFor="let option of filteredOptions | async" [value]="option">
       <!-- {{ option.name }} -->
-      <template *ngIf="optionTemplate" [ngTemplateOutlet]="optionTemplate" [ngOutletContext]="{ $implicit: option }"></template>
+      <ng-template *ngIf="optionTemplate" [ngTemplateOutlet]="optionTemplate" [ngOutletContext]="{ $implicit: option }"></ng-template>
       <span *ngIf="!optionTemplate">
         {{ displayField ? option[displayField] : option}}
       </span>

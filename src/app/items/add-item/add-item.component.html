@@ -27,12 +27,12 @@
         [formCtrl]="addItemForm.get('madeIn')"
         [formGroup]="addItemForm"
         displayField="name">
-        <template let-option>
+        <ng-template let-option>
           <div class="d-flex justify-content-start">
             <span>{{option.name }}</span>
             <span class="flag-icon ml-auto" [ngClass]="'flag-icon-' + option._id"></span>
           </div>
-        </template>
+        </ng-template>
       </app-autocomplete>
 
       <md-input-container>
