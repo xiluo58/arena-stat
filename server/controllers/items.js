@@ -115,22 +115,25 @@ module.exports.getFavoriteItems = function(req, res){
   Favorite.find({
     user: userId,
   })
-  .distinct('item')
-  .exec((err, itemIds) => {
-    if(err){
-      res.status(500);
-      res.json(err.message);
-      return;
-    }
-    console.log(itemIds);
-    Item.find({_id : {$in: itemIds}})
-      .exec((err, favItems) => {
-        if(err){
-          res.status(500);
-          res.json(err.message);
-          return;
-        }
-        res.json(favItems);
-      })
-  })
+    .distinct('item')
+    .exec((err, itemIds) => {
+      if(err){
+        res.status(500);
+        res.json(err.message);
+        return;
+      }
+      Item.find({_id : {$in: itemIds}})
+        .lean()
+        .exec((err, favItems) => {
+          if(err){
+            res.status(500);
+            res.json(err.message);
+            return;
+          }
+          favItems.forEach(item => {
+            item.isFavorite = true;
+          });
+          res.json(favItems);
+        })
+    })
 };
