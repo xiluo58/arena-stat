@@ -6,6 +6,7 @@ import { MaterialModule } from '@angular/material';
 import { CustomFormsModule } from 'ng2-validation';
 import {MessagesModule} from 'primeng/primeng';
 
+import { SharedModule } from '../shared/shared.module';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -22,6 +23,7 @@ import { FavoriteItemsComponent } from './profile/favorite-items/favorite-items.
   imports: [
     CommonModule,
     CustomFormsModule,
+    SharedModule,
     MaterialModule,
     MessagesModule,
     FormsModule,

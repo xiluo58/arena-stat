@@ -1,2 +1,12 @@
 <div class="contain">
+  <div class="row">
+    <md-card
+      *ngFor="let item of favoriteItems"
+      class="col-lg-3 m-2">
+      <app-item-card
+        [item]="item">
+      </app-item-card>
+      {{item.isFavorite}}
+    </md-card>
+  </div>
 </div>
