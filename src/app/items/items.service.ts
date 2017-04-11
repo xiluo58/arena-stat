@@ -28,4 +28,17 @@ export class ItemsService extends BaseAPI {
     return this.get('getItems');
   }
 
+  favItem(id) {
+    return this.post('favItem',
+      {
+        id: id
+      });
+  }
+
+  unfavItem(id) {
+    return this.post('unfavItem',
+      {
+        id: id
+      });
+  }
 }

@@ -9,6 +9,7 @@ import { ItemsRoutingModule } from './items-routing.module';
 import { AddItemComponent } from './add-item/add-item.component';
 import { ItemsService } from './items.service';
 import { ViewComponent } from './view/view.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 
 @NgModule({
@@ -23,12 +24,10 @@ import { ViewComponent } from './view/view.component';
     MaterialModule,
     ItemsRoutingModule
   ],
-  declarations: [
-    AddItemComponent,
-    ViewComponent,
-  ],
+  declarations: [AddItemComponent, ViewComponent, ItemCardComponent],
   exports: [
-    ItemsRoutingModule
+    ItemsRoutingModule,
+    ItemCardComponent
   ]
 })
 export class ItemsModule { }

@@ -15,6 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { PersonalInfoComponent } from './profile/personal-info/personal-info.component';
 import { FavoriteItemsComponent } from './profile/favorite-items/favorite-items.component';
 
+import { ItemsModule } from '../items/items.module';
+
 
 @NgModule({
   providers: [
@@ -26,6 +28,7 @@ import { FavoriteItemsComponent } from './profile/favorite-items/favorite-items.
     SharedModule,
     MaterialModule,
     MessagesModule,
+    ItemsModule,
     FormsModule,
     RouterModule.forChild([
       {
@@ -46,8 +49,8 @@ import { FavoriteItemsComponent } from './profile/favorite-items/favorite-items.
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PersonalInfoComponent,
-    FavoriteItemsComponent
+    FavoriteItemsComponent,
+    PersonalInfoComponent
   ],
   entryComponents: [
     LoginComponent,

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FavoriteService } from './favorite.service';
+import { ItemsService } from '../items.service';
 import { AccountService } from '../../services/account.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ItemCardComponent implements OnInit {
   @Input() item;
 
   constructor(
-    private favoriteService: FavoriteService,
+    private itemsService: ItemsService,
     private accountService: AccountService
   ) { }
 
@@ -22,7 +22,7 @@ export class ItemCardComponent implements OnInit {
     if (!this.accountService.isLoggedIn()) {
       alert('You must logged in to favorite an item');
     } else {
-      this.favoriteService.favItem(item._id).subscribe(
+      this.itemsService.favItem(item._id).subscribe(
         res => {
           item.isFavorite = true;
         }
@@ -34,7 +34,7 @@ export class ItemCardComponent implements OnInit {
     if (!this.accountService.isLoggedIn()) {
       alert('You must log in first.');
     } else {
-      this.favoriteService.unfavItem(item._id).subscribe(
+      this.itemsService.unfavItem(item._id).subscribe(
         res => {
           item.isFavorite = false;
         }
