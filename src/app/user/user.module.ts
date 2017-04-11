@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserService } from './user.service';
 import { ProfileComponent } from './profile/profile.component';
 import { PersonalInfoComponent } from './profile/personal-info/personal-info.component';
+import { FavoriteItemsComponent } from './profile/favorite-items/favorite-items.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { PersonalInfoComponent } from './profile/personal-info/personal-info.com
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PersonalInfoComponent
+    PersonalInfoComponent,
+    FavoriteItemsComponent
   ],
   entryComponents: [
     LoginComponent,

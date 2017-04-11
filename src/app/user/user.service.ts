@@ -23,4 +23,8 @@ export class UserService extends BaseAPI {
   getInfo() {
     return this.get('userInfo');
   }
+
+  getFavoriteItems() {
+    return this.get('favoriteItems');
+  }
 }
