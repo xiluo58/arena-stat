@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { ItemsService } from '../items.service';
 import { AccountService } from '../../services/account.service';
 
@@ -12,33 +14,38 @@ export class ItemCardComponent implements OnInit {
 
   constructor(
     private itemsService: ItemsService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
 
-  favorite(item) {
+  favorite() {
     if (!this.accountService.isLoggedIn()) {
       alert('You must logged in to favorite an item');
     } else {
-      this.itemsService.favItem(item._id).subscribe(
+      this.itemsService.favItem(this.item._id).subscribe(
         res => {
-          item.isFavorite = true;
+          this.item.isFavorite = true;
         }
       );
     }
   }
 
-  unfavorite(item) {
+  unfavorite() {
     if (!this.accountService.isLoggedIn()) {
       alert('You must log in first.');
     } else {
-      this.itemsService.unfavItem(item._id).subscribe(
+      this.itemsService.unfavItem(this.item._id).subscribe(
         res => {
-          item.isFavorite = false;
+          this.item.isFavorite = false;
         }
       );
     }
+  }
+
+  goToDetails() {
+    this.router.navigate(['/items/detail/' + this.item._id]);
   }
 }

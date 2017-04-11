@@ -35,7 +35,7 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
         component: AddItemComponent
       },
       {
-        path: ':id',
+        path: 'detail/:id',
         component: ItemDetailsComponent,
         resolve: {
           itemDetails: ItemDetailsResolverService
