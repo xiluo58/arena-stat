@@ -109,3 +109,28 @@ module.exports.unfavItem = function(req, res){
     res.json(result);
   })
 };
+
+module.exports.getFavoriteItems = function(req, res){
+  let userId = req.user._id;
+  Favorite.find({
+    user: userId,
+  })
+  .distinct('item')
+  .exec((err, itemIds) => {
+    if(err){
+      res.status(500);
+      res.json(err.message);
+      return;
+    }
+    console.log(itemIds);
+    Item.find({_id : {$in: itemIds}})
+      .exec((err, favItems) => {
+        if(err){
+          res.status(500);
+          res.json(err.message);
+          return;
+        }
+        res.json(favItems);
+      })
+  })
+};
