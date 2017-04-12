@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm run ng build ./server/public && node ./server/bin/www",
+    "start": "npm run ng build -- prod && node ./server/bin/www",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

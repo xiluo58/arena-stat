@@ -8,7 +8,7 @@ import { UserService } from '../../user.service';
   styleUrls: ['./personal-info.component.scss']
 })
 export class PersonalInfoComponent implements OnInit {
-  data = {};
+  data: any = {};
   tokenInfo;
 
   constructor(
