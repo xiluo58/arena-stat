@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         }
       ];
       window.setTimeout(() => {
+        location.reload();
         this.router.navigate(['/items']);
       }, 2000);
     }, err => {
