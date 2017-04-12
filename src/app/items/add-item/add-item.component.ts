@@ -14,6 +14,7 @@ export class AddItemComponent implements OnInit {
   brands: any[];
   categories: any[];
   madeInCountries: any[];
+  messages: any[];
 
   constructor(
     private fb: FormBuilder,
@@ -58,7 +59,12 @@ export class AddItemComponent implements OnInit {
       imageUrl: value.imageUrl
     }).subscribe(
       res => {
-        console.log(res);
+        this.messages = [
+          {
+            severity: 'success',
+            detail: 'The item is added.'
+          }
+        ];
       },
       err => {
         console.error(err);

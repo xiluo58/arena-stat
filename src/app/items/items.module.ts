@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
+import {MessagesModule} from 'primeng/primeng';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -25,6 +26,7 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
     ReactiveFormsModule,
     SharedModule,
     MaterialModule,
+    MessagesModule,
     RouterModule.forChild([
       {
         path: '',
