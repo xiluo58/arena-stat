@@ -1,5 +1,5 @@
 # Demo
-The purpose for this project is showing my MEAN stack skills.
+The purpose of this project is to show my MEAN stack developing skills.
 
 
 ## Prerequisite
