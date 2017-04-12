@@ -19,7 +19,9 @@ To run this project, please have following softwares installed.
 ## Technologies Used
 ### Front end: 
 Framework: [Angular 2](https://angular.io/)
+
 UI Component: [Material 2](https://material.angular.io/), [PrimeNG](https://www.primefaces.org/primeng/#/)
+
 CSS Library: [Bootstrap 4](https://v4-alpha.getbootstrap.com)
 
 ### Back end: 
