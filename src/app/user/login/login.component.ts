@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   messages = [];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -30,7 +32,9 @@ export class LoginComponent implements OnInit {
           detail: 'You have logged in successfully.'
         }
       ];
-
+      window.setTimeout(() => {
+        this.router.navigate(['/items']);
+      }, 2000);
     }, err => {
       this.messages = [
         {
