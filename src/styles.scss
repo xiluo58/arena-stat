@@ -29,3 +29,11 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 
 @import './styles/material';
 
+
+
+// custom styles
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
