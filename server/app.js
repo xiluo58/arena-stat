@@ -37,6 +37,12 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use('/api', api);
 
+// [SH] Otherwise render the index.html page for the Angular SPA
+// [SH] This means we don't have to map all of the SPA routes in Express
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, '../dist', 'index.html'));
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
