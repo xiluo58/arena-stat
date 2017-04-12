@@ -1,3 +1,4 @@
 module.exports.config = {
-  secret: 'SECRET'
+  secret: 'SECRET',
+  databaseURI: 'mongodb://localhost/makeup'
 };

@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var config = require('./config.js').config;
 
 
 var mongoose = require('mongoose');
 require('./models/User');
 require('./config/passport');
-mongoose.connect('mongodb://localhost/makeup');
+
+mongoose.connect(config.databaseURI);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
