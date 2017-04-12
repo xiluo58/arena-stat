@@ -3,17 +3,17 @@ The purpose of this project is to show my MEAN stack developing skills.
 
 
 ## Prerequisite
-To run this project, please have following softwares installed.
-1. [node.js](https://nodejs.org/en/download/package-manager/)
+1. [node.js](https://nodejs.org/en/download/package-manager/) is installed. It should also install npm
 2. [MongoDB](https://www.mongodb.com/download-center)
+3. Make sure MongoDB is running (https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#run-mongodb)
 
 
 ## Running
-1. Make sure MongoDB is running (https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/#run-mongodb)
-2. Run `npm install`
-3. Run `ng serve` to start front end
-4. Run `server/bin/www/` to start back end
-5. Open (http://localhost:4200) in your browser.
+Run `npm start` and open (http://localhost:3000) Or
+1. Run `npm install`
+2. Run `ng serve` to start front end
+3. Run `server/bin/www/` to start back end
+4. Open (http://localhost:4200) in your browser.
 
 
 ## Technologies Used
