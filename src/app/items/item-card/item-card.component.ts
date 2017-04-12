@@ -15,7 +15,6 @@ export class ItemCardComponent implements OnInit {
   constructor(
     private itemsService: ItemsService,
     private accountService: AccountService,
-    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,7 +44,4 @@ export class ItemCardComponent implements OnInit {
     }
   }
 
-  goToDetails() {
-    this.router.navigate(['/items/detail/' + this.item._id]);
-  }
 }
