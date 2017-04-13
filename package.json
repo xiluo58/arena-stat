@@ -4,9 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm run ng build --prod && node ./server/bin/www",
+    "start": "npm run build-prod && node ./server/bin/www",
     "build": "ng build",
-    "build-prod": "npm run ng build --prod",
+    "build-prod": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
