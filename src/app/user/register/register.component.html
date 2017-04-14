@@ -15,18 +15,12 @@
         required
         email
         [(ngModel)]="email">
-        <md-hint class="error-message" [hidden]="emailField.untouched">
-          <span
-            class="error-message"
-            *ngIf="emailField.errors?.required">
+        <md-error *ngIf="emailField.errors?.required">
             E-mail is required.
-          </span>
-          <span
-            class="error-message"
-            *ngIf="email && emailField.errors?.email">
-            Please input a valid email address.
-          </span>
-        </md-hint>
+        </md-error>
+        <md-error *ngIf="email && emailField.errors?.email">
+          Please input a valid email address.
+        </md-error>
       </md-input-container>
 
 
@@ -39,13 +33,9 @@
         #passwordField="ngModel"
         required
         [(ngModel)]="password">
-        <md-hint class="error-message" [hidden]="passwordField.untouched">
-          <span
-            class="error-message"
-            *ngIf="passwordField.errors?.required">
-            Password is required.
-          </span>
-        </md-hint>
+        <md-error *ngIf="passwordField.errors?.required">
+          Password is required.
+        </md-error>
       </md-input-container>
 
       <md-input-container>
@@ -58,18 +48,12 @@
         required
         [equalTo]="passwordField"
         [(ngModel)]="repeatPassword">
-        <md-hint class="error-message" [hidden]="repeatPasswordField.untouched">
-          <span
-            class="error-message"
-            *ngIf="repeatPasswordField.errors?.required">
-            Password is required.
-          </span>
-          <span
-            class="error-message"
-            *ngIf="repeatPasswordField.errors?.equalTo">
-            These passwords don't match. Try again?
-          </span>
-        </md-hint>
+        <md-error *ngIf="repeatPasswordField.errors?.required">
+          Password is required.
+        </md-error>
+        <md-error *ngIf="repeatPasswordField.errors?.equalTo">
+          These passwords don't match. Try again?
+        </md-error>
       </md-input-container>
 
       <button
