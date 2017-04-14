@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { MdInputModule } from '@angular/material';
+import { MdTabsModule } from '@angular/material';
+import { MdCardModule } from '@angular/material';
+import { MdRadioModule } from '@angular/material';
 import { CustomFormsModule } from 'ng2-validation';
-import {MessagesModule} from 'primeng/primeng';
+import { MessagesModule } from 'primeng/primeng';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -26,7 +29,10 @@ import { ItemsModule } from '../items/items.module';
     CommonModule,
     CustomFormsModule,
     SharedModule,
-    MaterialModule,
+    MdInputModule,
+    MdTabsModule,
+    MdCardModule,
+    MdRadioModule,
     MessagesModule,
     ItemsModule,
     FormsModule,
