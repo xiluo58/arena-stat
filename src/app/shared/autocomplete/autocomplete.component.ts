@@ -13,7 +13,11 @@ export class AutocompleteComponent implements OnInit, OnChanges {
   @Input() formCtrl: FormControl;
   @Input() formGroup: FormGroup;
   @Input() displayField: string;
-  @Input() errorMessages;
+  @Input() required: boolean;
+  @Input() errorMessages: [{
+    errorName: string,
+    message: string
+  }];
 
   @ContentChild(TemplateRef) optionTemplate: TemplateRef<any>;
 

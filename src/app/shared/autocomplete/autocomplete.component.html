@@ -1,6 +1,11 @@
 <div [formGroup]="formGroup">
   <md-input-container>
-    <input mdInput [placeholder]="placeholder" [mdAutocomplete]="auto" [formControl]="formCtrl">
+    <input mdInput [placeholder]="placeholder" [mdAutocomplete]="auto" [formControl]="formCtrl" [required]="required ? true : null">
+    <md-error *ngFor="let errorMessage of errorMessages">
+      <span *ngIf="formCtrl.errors && formCtrl.errors[errorMessage.errorName]">
+        {{errorMessage.message}}
+      </span>
+    </md-error>
   </md-input-container>
 
   <md-autocomplete #auto="mdAutocomplete" [displayWith]="getDisplayValue">
