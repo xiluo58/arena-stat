@@ -11,6 +11,11 @@
         [options]="brands"
         [formCtrl]="addItemForm.get('brand')"
         [formGroup]="addItemForm"
+        [required]="true"
+        [errorMessages]="[{
+        errorName: 'required',
+        message: 'Please select a brand'
+        }]"
         displayField="name">
       </app-autocomplete>
 
@@ -41,8 +46,12 @@
         mdInput
         placeholder="Name"
         type="string"
+        required
         formControlName="name"
         >
+        <md-error *ngIf="addItemForm.get('name').errors?.required">
+          Please input the name of the item.
+        </md-error>
       </md-input-container>
 
       <md-input-container>
