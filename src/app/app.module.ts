@@ -6,8 +6,11 @@ import { RouterModule } from '@angular/router';
 import { Http } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Injector } from '@angular/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MdSidenavModule } from '@angular/material';
 import { MdListModule } from '@angular/material';
+import { MdSelectModule } from '@angular/material';
 
 import { ConfigModule, ConfigLoader, ConfigHttpLoader, ConfigService } from '@nglibs/config';
 
@@ -38,6 +41,14 @@ export function configFactory(http: Http): ConfigLoader {
     HttpModule,
     MdSidenavModule,
     MdListModule,
+    MdSelectModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [Http]
+      }
+    }),
     ConfigModule.forRoot({
       provide: ConfigLoader,
       useFactory: (configFactory),
@@ -65,10 +76,15 @@ export function configFactory(http: Http): ConfigLoader {
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   constructor(
     private injector: Injector
   ) {
     BaseAPI.injector = this.injector;
   }
+}
+
+export function createTranslateLoader(http: Http) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

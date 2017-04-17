@@ -26,5 +26,12 @@
         {{accountInfo.email}}
       </a>
     </span>
+    <span class="ml-2">
+      <i class="fa fa-language" aria-hidden="true"></i>
+      <md-select placeholder="Language" floatPlaceholder="never" (change)="onLanguageChange($event.value)" [(ngModel)]="currentLanguageCode">
+        <md-option *ngFor="let language of languages" [value]="language.code">{{ language.name }}</md-option>
+      </md-select>
+
+    </span>
   </div>
 </header>
